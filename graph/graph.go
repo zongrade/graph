@@ -87,11 +87,12 @@ func (s Settings) CreateDotsGraphics() []plotter.XY {
 	fmt.Println(max)
 	fmt.Println(min)
 	scatterData := make(plotter.XYs, len(*s.graphicDots)/2)
-	for i := 0; i < len(scatterData)-1; i++ {
+	for i := 0; i < len(scatterData); i++ {
 		rn := int(normalDist.Rand())
 		scatterData[i].X = (*s.graphicDots)[rn].X
 		scatterData[i].Y = (*s.graphicDots)[rn].Y
 	}
+	fmt.Println(scatterData)
 	createGraphicWithDot(*s.graphicDots, scatterData, namingRandomGraphic("dots_", PNG), color.RGBA{R: 255, G: 0, B: 0, A: 255})
 
 	return nil
